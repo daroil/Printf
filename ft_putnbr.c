@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putnbr_fd.c                                     :+:      :+:    :+:   */
+/*   ft_putnbr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dhendzel <dhendzel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/15 14:13:26 by dhendzel          #+#    #+#             */
-/*   Updated: 2022/10/17 18:12:38 by dhendzel         ###   ########.fr       */
+/*   Updated: 2022/10/18 16:55:44 by dhendzel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-void	ft_putnbr(int n)
+void	ft_printnbr(int n)
 {	
 	long	num;
 
@@ -23,6 +23,29 @@ void	ft_putnbr(int n)
 		num *= -1;
 	}
 	if (num >= 10)
-		ft_putnbr(num / 10);
+		ft_printnbr(num / 10);
 	ft_putchar(num % 10 + '0');
+}
+
+size_t	ft_count_num(int n)
+{
+	size_t	count;
+
+	if (n > 0)
+		count = 0;
+	else
+		count = 1;
+	while (n != 0)
+	{
+		n /= 10;
+		count++;
+	}
+	return (count);
+}
+
+
+int	ft_putnbr(int n)
+{	
+	ft_printnbr(n);
+	return (ft_count_num(n));
 }

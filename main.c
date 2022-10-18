@@ -6,7 +6,7 @@
 /*   By: dhendzel <dhendzel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/11 10:50:01 by dhendzel          #+#    #+#             */
-/*   Updated: 2022/10/17 18:04:45 by dhendzel         ###   ########.fr       */
+/*   Updated: 2022/10/18 18:32:09 by dhendzel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -105,49 +105,59 @@ int main()
 	// ft_putnbr_fd(n,1);	
 	// char	c1;
 	// char	c2;
-	// int		num;
-	// int		num_neg;
+	int		num;
+	int		num_neg;
 	// char	*str;
 	// int		hex;
 	// int		*ptr;
 
 	// c1='i';
 	// c2='g';
-	// num = 125;
-	// num_neg = -99;
+	num = 125;
+	num_neg = -99;
 	// str = "Hello, motherfucker";
 	// hex = 0xab0;
 	// ptr = &num;
 	// ft_printf("Som%xth%cn%c %d %s\n",hex,c1,c2,num,str);
     // printf("unsigned positive:%u \n",num);
-	// printf("decimal positive:%d \n",num);
-	// ft_printf("My unsigned positive:%u \n",num);
-	// ft_printf("My decimal positive:%d \n",num);
-	// printf("unsigned negative:%u \n",num_neg);
-	// printf("decimal negative:%d \n",num_neg);
-	// ft_printf("My unsigned negative:%u \n",num_neg);
-	// ft_printf("My decimal negative:%d \n",num_neg);
+	printf("decimal positive:%d \n",num);
+	ft_printf("My unsigned positive:%u \n",num);
+	ft_printf("My decimal positive:%d \n",num);
+	printf("unsigned negative:%u \n",num_neg);
+	printf("decimal negative:%d \n",num_neg);
+	ft_printf("My unsigned negative:%u \n",num_neg);
+	ft_printf("My decimal negative:%d \n",num_neg);
+	num = printf(" NULL %s NULL \n", NULL);
+	printf("%d \n",num);
+	num = ft_printf(" NULL %s NULL \n", NULL);
+	ft_printf("%d \n",num);
+	ft_printf("%% %% %% %% \n");
+	printf("%% %% %% %% \n");
+	printf(" %p %p ", NULL, NULL);
+	ft_printf(" %p %p ", 0, 0);
+	// printf("original hex: %x \n", LONG_MIN);
+	// ft_printf("My hex: %x \n", LONG_MIN);
 	// printf("%p \n",ptr);
 	// ft_printf("%p \n",ptr);
 
-	ft_printf("%c \n", '0');
-	ft_printf(" %c \n", '0');
-	ft_printf(" %c \n", '0' - 256);
-	ft_printf("%c \n", '0' + 256);
-	ft_printf(" %c %c %c \n", '0', 0, '1');
-	ft_printf(" %c %c %c \n", ' ', ' ', ' ');
-	ft_printf(" %c %c %c \n", '1', '2', '3');
-	ft_printf(" %c %c %c \n", '2', '1', 0);
-	ft_printf(" %c %c %c \n", 0, '1', '2');
-	printf("%c \n", '0');
-	printf(" %c \n", '0');
-	printf(" %c \n", '0' - 256);
-	printf("%c \n", '0' + 256);
-	printf(" %c %c %c \n", '0', 0, '1');
-	printf(" %c %c %c \n", ' ', ' ', ' ');
-	printf(" %c %c %c \n", '1', '2', '3');
-	printf(" %c %c %c \n", '2', '1', 0);
-	printf(" %c %c %c \n", 0, '1', '2');
+	// ft_printf("%c \n", '0');
+	// ft_printf(" %c \n", '0');
+	// ft_printf(" %c \n", '0' - 256);
+	// ft_printf("%c \n", '0' + 256);
+	// ft_printf(" %c %c %c \n", '0', 0, '1');
+	// ft_printf(" %c %c %c \n", ' ', ' ', ' ');
+	// ft_printf(" %c %c %c \n", '1', '2', '3');
+	// ft_printf(" %c %c %c \n", '2', '1', 0);
+	// ft_printf(" %c %c %c \n", 0, '1', '2');
+	// printf("%c \n", '0');
+	// printf(" %c \n", '0');
+	// printf(" %c \n", '0' - 256);
+	// printf("%c \n", '0' + 256);
+	// printf(" %c %c %c \n", '0', 0, '1');
+	// printf(" %c %c %c \n", ' ', ' ', ' ');
+	// printf(" %c %c %c \n", '1', '2', '3');
+	// printf(" %c %c %c \n", '2', '1', 0);
+	// printf(" %c %c %c \n", 0, '1', '2');
 	
 	return(0);
 } 

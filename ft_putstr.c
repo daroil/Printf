@@ -1,22 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putstr_fd.c                                     :+:      :+:    :+:   */
+/*   ft_putstr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dhendzel <dhendzel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/15 13:54:31 by dhendzel          #+#    #+#             */
-/*   Updated: 2022/10/17 18:11:41 by dhendzel         ###   ########.fr       */
+/*   Updated: 2022/10/18 17:14:41 by dhendzel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-void	ft_putstr(char *s)
+int	ft_putstr(char *s)
 {
+	int i;
+
+	i = 0;
+	if (!s)
+		s = "(null)";
 	while (*s)
 	{
 		ft_putchar(*s);
 		s++;
+		i++;
 	}
+	return (i);
 }
