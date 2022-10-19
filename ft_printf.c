@@ -6,7 +6,7 @@
 /*   By: dhendzel <dhendzel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/17 12:02:32 by dhendzel          #+#    #+#             */
-/*   Updated: 2022/10/19 16:43:05 by dhendzel         ###   ########.fr       */
+/*   Updated: 2022/10/19 17:03:38 by dhendzel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,26 +34,18 @@ static int	ft_handle_flag(va_list argptr, char c)
 int	ft_printf(const char *str, ...)
 {
 	va_list	argptr;
-	int		val;
 	int		add;
 
-	val = 0;
 	add = 0;
 	va_start(argptr, str);
 	while (*str)
 	{
 		if (*str == '%')
-		{
-			add += ft_handle_flag(argptr, *(str + 1));
-			str++;
-		}
+			add += ft_handle_flag(argptr, *(++str));
 		else
-		{
-			ft_putchar(*str);
-			val++;
-		}
+			add += ft_putchar(*str);
 		str++;
 	}
 	va_end(argptr);
-	return (val + add);
+	return (add);
 }
