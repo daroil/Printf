@@ -1,50 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putnbr.c                                        :+:      :+:    :+:   */
+/*   ft_print_pointer.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dhendzel <dhendzel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/15 14:13:26 by dhendzel          #+#    #+#             */
-/*   Updated: 2022/10/19 16:39:43 by dhendzel         ###   ########.fr       */
+/*   Created: 2022/10/19 16:24:56 by dhendzel          #+#    #+#             */
+/*   Updated: 2022/10/19 16:43:43 by dhendzel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-void	ft_printnbr(int n)
-{	
-	long	num;
-
-	num = n;
-	if (n < 0)
-	{
-		ft_putchar('-');
-		num *= -1;
-	}
-	if (num >= 10)
-		ft_printnbr(num / 10);
-	ft_putchar(num % 10 + '0');
-}
-
-size_t	ft_count_num(int n)
+int	ft_print_pointer(unsigned long ptr)
 {
-	size_t	count;
+	int		i;
+	int		res;
+	char	s2[16];
 
-	if (n > 0)
-		count = 0;
-	else
-		count = 1;
-	while (n != 0)
+	res = 0;
+	i = 15;
+	res += ft_putstr("0x");
+	if (ptr == 0)
+		res += ft_putchar('0');
+	while (ptr)
 	{
-		n /= 10;
-		count++;
+		if ((ptr % 16) >= 10)
+			s2[i] = (ptr % 16) + 87;
+		else
+			s2[i] = (ptr % 16) + '0';
+		ptr /= 16;
+		i--;
 	}
-	return (count);
-}
-
-int	ft_putnbr(int n)
-{	
-	ft_printnbr(n);
-	return (ft_count_num(n));
+	while (++i < 16)
+		res += ft_putchar(s2[i]);
+	return (res);
 }

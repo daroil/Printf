@@ -6,14 +6,15 @@
 #    By: dhendzel <dhendzel@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/17 17:53:59 by dhendzel          #+#    #+#              #
-#    Updated: 2022/10/17 18:13:44 by dhendzel         ###   ########.fr        #
+#    Updated: 2022/10/19 16:47:31 by dhendzel         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 
 CC = gcc
-SRCS =  main.c ft_putchar.c ft_putstr.c \
-		ft_putnbr.c ft_printf.c
+SRCS =  ft_putchar.c ft_putstr.c \
+		ft_putnbr.c ft_printf.c ft_print_hexa.c\
+		ft_print_pointer.c ft_put_unsigned_nbr.c
 
 NAME = libftprintf.a 
 OBJ	= $(SRCS:.c=.o)
@@ -34,8 +35,3 @@ fclean: clean
 	rm -f $(NAME)
 
 re: fclean all
-
-reclean: fclean
-	rm -f result
-
-rere: reclean result

@@ -1,33 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putnbr.c                                        :+:      :+:    :+:   */
+/*   ft_put_unsigned_nbr.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dhendzel <dhendzel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/15 14:13:26 by dhendzel          #+#    #+#             */
-/*   Updated: 2022/10/19 16:39:43 by dhendzel         ###   ########.fr       */
+/*   Created: 2022/10/19 16:36:16 by dhendzel          #+#    #+#             */
+/*   Updated: 2022/10/19 16:38:25 by dhendzel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-void	ft_printnbr(int n)
-{	
-	long	num;
-
-	num = n;
-	if (n < 0)
-	{
-		ft_putchar('-');
-		num *= -1;
-	}
-	if (num >= 10)
-		ft_printnbr(num / 10);
-	ft_putchar(num % 10 + '0');
-}
-
-size_t	ft_count_num(int n)
+static size_t	ft_count_unsigned_num(unsigned int n)
 {
 	size_t	count;
 
@@ -43,8 +28,13 @@ size_t	ft_count_num(int n)
 	return (count);
 }
 
-int	ft_putnbr(int n)
+int	ft_put_unsigned_nbr(unsigned int n)
 {	
-	ft_printnbr(n);
-	return (ft_count_num(n));
+	unsigned int	num;
+
+	num = n;
+	if (num >= 10)
+		ft_put_unsigned_nbr(num / 10);
+	ft_putchar(num % 10 + '0');
+	return (ft_count_unsigned_num(num));
 }

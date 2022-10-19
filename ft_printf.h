@@ -6,11 +6,9 @@
 /*   By: dhendzel <dhendzel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/17 17:52:40 by dhendzel          #+#    #+#             */
-/*   Updated: 2022/10/18 17:58:59 by dhendzel         ###   ########.fr       */
+/*   Updated: 2022/10/19 16:41:00 by dhendzel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
-
 
 #ifndef FT_PRINTF_H
 # define FT_PRINTF_H
@@ -21,17 +19,13 @@
 # include <unistd.h>
 # include <stdarg.h>
 
-typedef struct s_list
-{
-	void			*content;
-	struct s_list	*next;
-}					t_list;
-
-
 int		ft_putchar(char c);
 int		ft_putstr(char *s);
 int		ft_putnbr(int n);
-int		ft_printf(const char *, ...);
+int		ft_printf(const char *str, ...);
 size_t	ft_count_num(int n);
+int		ft_print_hexa(unsigned int u, char c);
+int		ft_print_pointer(unsigned long ptr);
+int		ft_put_unsigned_nbr(unsigned int n);
 
 #endif

@@ -1,50 +1,42 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putnbr.c                                        :+:      :+:    :+:   */
+/*   ft_print_hexa.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dhendzel <dhendzel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/15 14:13:26 by dhendzel          #+#    #+#             */
-/*   Updated: 2022/10/19 16:39:43 by dhendzel         ###   ########.fr       */
+/*   Created: 2022/10/19 16:17:06 by dhendzel          #+#    #+#             */
+/*   Updated: 2022/10/19 16:44:19 by dhendzel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-void	ft_printnbr(int n)
-{	
-	long	num;
-
-	num = n;
-	if (n < 0)
-	{
-		ft_putchar('-');
-		num *= -1;
-	}
-	if (num >= 10)
-		ft_printnbr(num / 10);
-	ft_putchar(num % 10 + '0');
-}
-
-size_t	ft_count_num(int n)
+int	ft_print_hexa(unsigned int u, char c)
 {
-	size_t	count;
+	int		i;
+	int		j;
+	int		res;
+	char	s[8];
 
-	if (n > 0)
-		count = 0;
-	else
-		count = 1;
-	while (n != 0)
+	res = 0;
+	i = 7;
+	if (c == 'x')
+		j = 87;
+	if (c == 'X')
+		j = 55;
+	if (u == 0)
+		res += ft_putchar('0');
+	while (u)
 	{
-		n /= 10;
-		count++;
+		if ((u % 16) >= 10)
+			s[i] = (u % 16) + j;
+		else
+			s[i] = (u % 16) + '0';
+		u /= 16;
+		i--;
 	}
-	return (count);
-}
-
-int	ft_putnbr(int n)
-{	
-	ft_printnbr(n);
-	return (ft_count_num(n));
+	while (++i < 8)
+		res += ft_putchar(s[i]);
+	return (res);
 }
