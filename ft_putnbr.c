@@ -6,13 +6,13 @@
 /*   By: dhendzel <dhendzel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/15 14:13:26 by dhendzel          #+#    #+#             */
-/*   Updated: 2022/10/19 16:39:43 by dhendzel         ###   ########.fr       */
+/*   Updated: 2022/11/11 05:55:23 by dhendzel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-void	ft_printnbr(int n)
+static void	ft_printnbr(int n)
 {	
 	long	num;
 
@@ -27,7 +27,7 @@ void	ft_printnbr(int n)
 	ft_putchar(num % 10 + '0');
 }
 
-size_t	ft_count_num(int n)
+static size_t	ft_count_num(int n)
 {
 	size_t	count;
 
